@@ -1,0 +1,41 @@
+You will write a card counting function. It will receive a card parameter, which can be a number or a string, and increment or decrement the global count variable according to the card's value (see table). The function will then return a string with the current count and the string Bet if the count is positive, or Hold if the count is zero or negative. The current count and the player's decision (Bet or Hold) should be separated by a single space.
+
+Note: Cards 2-6 = +1; cards 7-9 = 0; cards 10-A = -1 (this is displayed in a table on the FCC lesson page
+
+//count starts at zero at beginning of hand
+var count = 0;
+
+//this function is assigning value to each card and then incrementing or decrementing count
+//ignore cards 7, 8, and 9 as they don't change the count so effect on outcome
+function cc(card) {
+ 
+switch (card){
+  case 2:
+  case 3:
+  case 4: 
+  case 5:
+  case 6:
+    count++;
+    break;
+}
+switch (card){
+  case 10:
+  case 'J':
+  case 'Q':
+  case 'K':
+  case 'A':
+    count--;
+    break;
+}
+
+//this second function looks at the count and decides if the outcome is bet or hold
+
+if (count > 0) {
+    return count + " Bet";
+  } else {
+    return count + " Hold";
+  }
+
+}
+
+cc(2); cc(3); cc(7); cc('K'); cc('A');
