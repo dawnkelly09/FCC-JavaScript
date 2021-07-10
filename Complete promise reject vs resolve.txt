@@ -1,0 +1,20 @@
+Complete a Promise with resolve and reject
+
+Note:The resolve and reject parameters given to the promise argument are used to do this. resolve is used when you want your promise to succeed, and reject is used when you want it to fail.
+
+Code:
+
+const makeServerRequest = new Promise((resolve, reject) => {
+  
+// responseFromServer represents a response from a server
+  
+let responseFromServer;
+ 
+//if the response from the server = true then resolve promise, else reject 
+  
+  if(responseFromServer) {
+    resolve("We got the data");
+  } else {  
+    reject("Data not received");
+  }
+});
