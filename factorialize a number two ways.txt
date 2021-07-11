@@ -1,0 +1,54 @@
+Factorialize a Number
+
+Remember:
+
+1) formula for factorial is: factorial(n)=n∗factorial(n−1)
+2) the factorial of 0 = 1
+
+Two methods-
+
+Method 1: iterative approach
+
+
+
+function factorial(n){
+
+//this first section takes care of cases where we know the answer is 1
+
+  let answer = 1;
+  if (n == 0 || n == 1){
+    return answer;
+
+//else statement to deal with the rest of our positive numbers
+//this loop will check to see if number is greater than one 
+//if it is >1, then adds it to the factorial equation and decrements to go to next number
+//remember: answer initially = 1 so first time through it will be 1 * i
+//the new value becomes the new answer and the loop repeats until it gets to 1
+
+  }else{
+    for(var i = n; i >= 1; i--){
+      answer = answer * i;
+    }
+    return answer;
+  }  
+}
+
+
+Method 2: recursive approach
+
+function factorial(n){
+ 
+//base case - this is what will exit the function when it's reached
+
+    if(n == 0 || n == 1){
+        return 1;
+
+
+ //recursive case - this is a condensed version of the statement used in our for loop example
+
+    }else{
+        return n * factorial(n-1);
+    }
+}
+
+NOTE: the recursive method is shorter code but takes longer to run as each case is stored in the stack until the whole thing is run
