@@ -1,0 +1,21 @@
+Repeat a String Repeat a String
+
+Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number. For the purpose of this challenge, do not use the built-in .repeat() method.
+
+Solution:
+
+function repeatStringNumTimes(str, num) {
+
+//create variable to store strings as they are added, initiate with empty string
+
+  var accumulatedStr = "";
+
+//as long as num is > 0, add the string to accumulatedStr and then decriment num
+
+  while (num > 0) {
+    accumulatedStr += str;
+    num--;
+  }
+
+  return accumulatedStr;
+}
