@@ -1,0 +1,39 @@
+Return Largest Numbers in Arrays
+
+Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays.
+
+
+function largestOfFour(arr) {
+
+//create a variable to store results as an array
+
+  let results = [];
+
+//This outer for loop will iterate through the outer array
+
+  for (let i = 0; i < arr.length; i++) {
+
+//This second variable will be updated to hold whatever the current longest number is
+
+    let largestNumber = arr[i][0];
+
+//This nested for loop will iterate through the inner/individual arrays
+//Each number will be checked against current largest stored number and will replace if it is larger
+
+    for (let j = 1; j < arr[i].length; j++) {
+      if (arr[i][j] > largestNumber) {
+
+//The final largest number is stored with it's position inside the nested array
+//[i] will be position re: in group 0, 1, 2 etc
+//[j] will be index position within the individual subarray
+
+        largestNumber = arr[i][j];
+      }
+    }
+    results[i] = largestNumber;
+  }
+
+  return results;
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
