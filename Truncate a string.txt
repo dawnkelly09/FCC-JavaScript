@@ -1,0 +1,22 @@
+Truncate a String
+
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a ... ending.
+
+Solution:
+
+function truncateString(str, num) {
+
+//if the string length is greater than the num passed to the function
+//return the string slice starting at index 0 and ending at index num + ...
+
+ if (str.length > num) {
+    return str.slice(0, num) + "...";
+
+//if string length is <= num passed to the function, just return the string
+
+  } else {
+    return str;
+  }
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
