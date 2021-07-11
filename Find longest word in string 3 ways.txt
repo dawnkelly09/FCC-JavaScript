@@ -1,0 +1,75 @@
+Find the Longest Word in a String
+
+Problem: Return the length of the longest word in the provided sentence. Your response should be a number.
+
+Three Methods to Solve
+
+Method 1: use a For Loop
+
+//will use the split() method--> be sure to put an empty space between the parenthesis
+//Needs to look like split(' ') to keep the words together or it will make individual letters
+
+function findLongestWord(str) {
+
+//use the split method to split sentence into an array of indiv words
+  var strSplit = str.split(' ');
+
+//set longestWord var = to 0 to start the loop
+
+  var longestWord = 0;
+
+//start with length of zero, run while string length is < the longest string, incriment each time
+
+  for(var i = 0; i < strSplit.length; i++){
+
+//if string is longer than the one it is compared to, assign it as the new value for longestWord
+
+    if(strSplit[i].length > longestWord){
+	longestWord = strSplit[i].length;
+     }
+  }
+  return longestWord;
+}
+
+
+Method 2: use Sort method
+
+//The sort() method sorts the elements of an array in place and returns the array.
+//Because uppercase comes before lower case in Unicode, we have to use oredering criterion
+
+function findLongestWord(str) {
+
+//First split string into array of strings, remember the empty space in parenthesis!
+
+var strSplit = str.split(' ');
+
+//Sort the elements in the array --> will compare a word to be word, longest comes to front
+
+var longestWord = strSplit.sort(function(a, b) { 
+    return b.length - a.length;
+});
+
+//return the the length of the first element in the array
+
+  return longestWord[0].length;
+}
+
+Method 3: use Reduce() method
+
+function findLongestWord(str) {
+
+//Split the string into array of strings. Remember the empty space!
+
+var strSplit = str.split(' ');
+
+//use the reduce method
+//the empty string "" at the end serves as the starting point for comparison
+//Compares first element in array to empty string, assigns yes to longest and keeps
+//that element for the next comparison. Last element assigned yes is returned
+
+var longestWord = strSplit.reduce(function(longest, currentWord) {
+    if(currentWord.length > longest.length)
+       return currentWord;
+    else
+       return longest;
+  }, "");
