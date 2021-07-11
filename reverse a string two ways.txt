@@ -1,0 +1,37 @@
+Reverse the provided string.
+
+You may need to turn the string into an array before you can reverse it.
+
+Your result must be a string.
+
+Two ways to solve:
+
+Method 1: use built in functions
+
+//chain together split, reverse, and join functions
+//will split string into an array of individual characters then
+//will reverse the characters in the array then
+//will join the characters back together into a string
+
+
+function reverseString(str) {
+  return str
+    .split("")
+    .reverse()
+    .join("");
+}
+reverseString("hello");
+
+Method 2: use a for loop
+
+//reversedStr is starting out blank
+//by using str.length-1, tells the loop to start from the end of the string
+//decrementing each iteration moves one character closer to start of string each time
+//+= str[i] is adding each character to reversedStr as loop iterates
+
+function reverseString(str) {
+  for (var reversedStr = "", i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
+  }
+  return reversedStr;
+}
