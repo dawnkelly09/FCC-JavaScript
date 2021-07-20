@@ -1,0 +1,31 @@
+Slice and Splice
+
+You are given two arrays and an index.
+
+Copy each element of the first array into the second array, in order.
+
+Begin inserting elements at index n of the second array.
+
+Return the resulting array. The input arrays should remain the same after the function runs.
+
+Solution:
+
+function frankenSplice(arr1, arr2, n) {
+
+//first use slice to copy arr2 and assign it to a variable so it doesn't get mutated
+
+  let localArray = arr2.slice();
+
+//use for loop to iterate through arr1 and splice each element into localArray (copy of arr2)
+//increment after each pass to go through all of arr1
+
+  for (let i = 0; i < arr1.length; i++) {
+    localArray.splice(n, 0, arr1[i]);
+    n++;
+  }
+
+//localArray should now return as the copy of arr2 with the arr1 elements spliced in
+//original arr2 has not change in any way because we made copy and worked with the copy
+
+  return localArray;
+}
