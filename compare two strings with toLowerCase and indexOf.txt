@@ -1,0 +1,23 @@
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+Solution:
+
+function mutation(arr) {
+
+//1st we will make both items lower case
+//the 2nd element is named test because we are testing to see if all of those characters
+//are in the 1st element (aka target in this example)
+
+  let test = arr[1].toLowerCase();
+  let target = arr[0].toLowerCase();
+
+//now that it's all lowercase, we can use for loop to compare character by character
+//The indexOf() method returns the first index at which a given element can be found 
+//in the array, or -1 if it is not present. So any non-match will kick back -1 and 
+//return false. If all match, true will return. Magic! 
+
+  for (let i = 0; i < test.length; i++) {
+    if (target.indexOf(test[i]) < 0) return false;
+  }
+  return true;
+}
