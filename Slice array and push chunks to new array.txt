@@ -1,0 +1,23 @@
+Write a function that splits an array (first argument) into groups the length of size (second argument) and returns them as a two-dimensional array.
+
+Solution:
+
+function chunkArrayInGroups(arr, size) {
+
+//1st create newArr to hold the chunks we make
+  let newArr = [];
+
+//Now use a for loop to iterate through the array
+//Loop starts at 0 (the first element in array)
+//Loop is creating indices to tell us where to slice the array
+//Loop increments by whatever # is stored in size (determines size of chunks)
+
+  for (let i = 0; i < arr.length; i += size) {
+
+//Chunks are made using slice->syntax slice(start, end)
+//Push each chunk to our new array
+
+    newArr.push(arr.slice(i, i + size));
+  }
+  return newArr;
+}
